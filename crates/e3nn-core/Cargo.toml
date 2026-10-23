@@ -1,0 +1,49 @@
+[package]
+name = "e3nn-core"
+version = "0.1.0"
+description = "Framework-free equivariant mathematical primitives for fixed-weight inference"
+readme = "README.md"
+keywords = ["equivariant", "spherical-harmonics", "tensor-product", "inference"]
+categories = ["science", "mathematics"]
+include = ["src/**", "tests/**", "benches/**", "examples/**", "fixtures/**", "build.rs", "Cargo.toml", "README.md", "LICENSE-MIT", "LICENSE-APACHE", "THIRD_PARTY_NOTICES.md"]
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+thiserror.workspace = true
+serde = { workspace = true, optional = true }
+rayon = { workspace = true, optional = true }
+
+[dev-dependencies]
+criterion.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[features]
+default = []
+accelerate-blas = []
+intel-mkl = []
+openblas = []
+# Provider marker for aarch64 Linux Arm Performance Libraries. It reuses the
+# OpenBLAS-compatible CBLAS call surface and is linked by downstream crates
+# against ArmPL LP64/OpenMP plus system libgomp.
+armpl = ["openblas"]
+parallel = ["dep:rayon"]
+serde = ["dep:serde"]
+
+[[bench]]
+name = "radial"
+harness = false
+
+[[bench]]
+name = "sh"
+harness = false
+
+[[bench]]
+name = "tensor_product"
+harness = false

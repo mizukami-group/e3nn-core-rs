@@ -1,0 +1,288 @@
+{
+  "conventions": {
+    "edge_direction": "r_ij = R_j + shift_ij - R_i",
+    "primary_irreps_layout": "e3nn-compatible contiguous blocks",
+    "spherical_harmonics_normalization": "component",
+    "spherical_harmonics_normalize": true,
+    "spherical_harmonics_normalize_input": true
+  },
+  "dtype": "float64",
+  "fixtures": [
+    {
+      "conventions": {
+        "normalization": "component",
+        "normalize": true,
+        "normalize_input": true
+      },
+      "filename": "spherical_harmonics_lmax2_component_normalized_f64.npz",
+      "lmax": 2,
+      "operation": "spherical_harmonics",
+      "tensor_shapes": {
+        "grad_vectors": [
+          5,
+          3
+        ],
+        "grad_y": [
+          5,
+          9
+        ],
+        "vectors": [
+          5,
+          3
+        ],
+        "y": [
+          5,
+          9
+        ]
+      }
+    },
+    {
+      "conventions": {
+        "normalization": "component",
+        "normalize": true,
+        "normalize_input": true
+      },
+      "filename": "spherical_harmonics_lmax3_component_normalized_f64.npz",
+      "lmax": 3,
+      "operation": "spherical_harmonics",
+      "tensor_shapes": {
+        "grad_vectors": [
+          5,
+          3
+        ],
+        "grad_y": [
+          5,
+          16
+        ],
+        "vectors": [
+          5,
+          3
+        ],
+        "y": [
+          5,
+          16
+        ]
+      }
+    },
+    {
+      "conventions": {
+        "normalization": "component",
+        "normalize": true,
+        "normalize_input": true
+      },
+      "filename": "spherical_harmonics_lmax4_component_normalized_f64.npz",
+      "lmax": 4,
+      "operation": "spherical_harmonics",
+      "tensor_shapes": {
+        "grad_vectors": [
+          5,
+          3
+        ],
+        "grad_y": [
+          5,
+          25
+        ],
+        "vectors": [
+          5,
+          3
+        ],
+        "y": [
+          5,
+          25
+        ]
+      }
+    },
+    {
+      "filename": "fully_connected_tensor_product_smoke_f64.npz",
+      "irreps_in1": "2x0e+1x1o",
+      "irreps_in2": "1x0e+1x1o",
+      "irreps_out": "2x0e+1x1o",
+      "operation": "fully_connected_tensor_product",
+      "tensor_shapes": {
+        "cg_entries": [
+          10
+        ],
+        "grad_out": [
+          4,
+          5
+        ],
+        "grad_w": [
+          4,
+          9
+        ],
+        "grad_x": [
+          4,
+          5
+        ],
+        "grad_y": [
+          4,
+          4
+        ],
+        "instructions": [
+          9
+        ],
+        "out": [
+          4,
+          5
+        ],
+        "w": [
+          4,
+          9
+        ],
+        "x": [
+          4,
+          5
+        ],
+        "y": [
+          4,
+          4
+        ]
+      },
+      "weight_numel": 9
+    },
+    {
+      "filename": "fully_connected_tensor_product_lmax4_smoke_f64.npz",
+      "irreps_in1": "1x3o+1x4e",
+      "irreps_in2": "1x1o+1x2e",
+      "irreps_out": "1x2e+1x3o+1x4e",
+      "operation": "fully_connected_tensor_product",
+      "tensor_shapes": {
+        "cg_entries": [
+          222
+        ],
+        "grad_out": [
+          3,
+          21
+        ],
+        "grad_w": [
+          3,
+          6
+        ],
+        "grad_x": [
+          3,
+          16
+        ],
+        "grad_y": [
+          3,
+          8
+        ],
+        "instructions": [
+          6
+        ],
+        "out": [
+          3,
+          21
+        ],
+        "w": [
+          3,
+          6
+        ],
+        "x": [
+          3,
+          16
+        ],
+        "y": [
+          3,
+          8
+        ]
+      },
+      "weight_numel": 6
+    },
+    {
+      "architecture": "synthetic-equivariant-v1",
+      "filename": "synthetic_equivariant_v1_energy_force_f64.npz",
+      "model": {
+        "centers": [
+          0.5,
+          1.0,
+          1.5,
+          2.0
+        ],
+        "cutoff": 3.5,
+        "edge_message_irreps": "1x0e x 1x1o -> 1x1o",
+        "gamma": 0.8,
+        "mlp_activations": [
+          "tanh",
+          "identity"
+        ],
+        "node_energy_irreps": "1x1o x 1x1o -> 1x0e",
+        "sh_lmax": 1,
+        "sh_normalization": "component",
+        "sh_normalize_input": true
+      },
+      "operation": "synthetic_equivariant_energy_force",
+      "tensor_shapes": {
+        "centers": [
+          4
+        ],
+        "edge_count": [
+          3
+        ],
+        "edge_message_cg_entries": [
+          3
+        ],
+        "edge_message_instructions": [
+          1
+        ],
+        "energy": [
+          3
+        ],
+        "forces": [
+          3,
+          3,
+          3
+        ],
+        "mlp_activations": [
+          2
+        ],
+        "mlp_layer0_bias": [
+          3
+        ],
+        "mlp_layer0_weight": [
+          3,
+          4
+        ],
+        "mlp_layer1_bias": [
+          1
+        ],
+        "mlp_layer1_weight": [
+          1,
+          3
+        ],
+        "node_energy_cg_entries": [
+          3
+        ],
+        "node_energy_instructions": [
+          1
+        ],
+        "pbc": [
+          3,
+          3
+        ],
+        "positions": [
+          3,
+          3,
+          3
+        ],
+        "species": [
+          3,
+          3
+        ]
+      }
+    }
+  ],
+  "generated_at": "2026-05-13T05:33:13.871746+00:00",
+  "python": {
+    "numpy_version": "2.0.2",
+    "python_version": "3.9.6",
+    "torch_version": "2.8.0"
+  },
+  "reference": {
+    "commit": "2aa7f58440a06b15352a2cbce01fa4c26f824969",
+    "name": "e3nn-torch",
+    "package_version": "0.6.0",
+    "repository": "https://github.com/e3nn/e3nn"
+  },
+  "schema_version": "0.3.0",
+  "seed": 12345
+}
